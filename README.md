@@ -1,6 +1,3 @@
-Terraform configuration for Cluster in the Cloud
-================================================
-
 # 概要
 本リポジトリは Cluster in the Cloud (https://github.com/clusterinthecloud/terraform) を OCI の Resource Manager でデプロイできるようにしたものです。
 
