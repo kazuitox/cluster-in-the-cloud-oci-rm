@@ -7,7 +7,7 @@ Slurm の Cloud Scheduling がセットアップされており、Cloud を利�
 
 # 使い方
 zip ファイルをダウンロードする。
-<img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png" height="180" >
+<img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png">
 
 
 
