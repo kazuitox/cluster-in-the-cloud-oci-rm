@@ -69,5 +69,11 @@ limits.yaml ファイルの編集が完了したら、finish コマンドを実�
 [opc@mgmt ~]$ finish
 ```
 
+ユーザの作成
+```
+[citc@mgmt ~]$ sudo /usr/local/sbin/add_user_ldap kazuito Kazuyuki Ito file:///home/opc/kazuito_key.pub
+```
+
+
 # 参考 URL
 https://cluster-in-the-cloud.readthedocs.io
