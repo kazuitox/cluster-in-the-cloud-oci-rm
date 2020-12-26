@@ -7,7 +7,7 @@ Slurm の Cloud Scheduling がセットアップされており、Cloud を利�
 
 # 使い方
 ## 1. 本リポジトリの zip ファイルをダウンロードします。
-<img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png" width="50%" height="50%" border="4px">
+<img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png" width="50%" height="50%" align="center">
 
 ## 2. OCI にログインし、user_OCID をコピーします。
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_User_OCID.png" width="50%" height="50%" border="1px">
