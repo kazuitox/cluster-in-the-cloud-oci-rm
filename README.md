@@ -28,6 +28,51 @@ Slurm の Cloud Scheduling がセットアップされており、Cloud を利�
 ## 7. 
 
 
+```
+% vi ~/.ssh/citc.key
+% chmod 600 ~/.ssh/citc.key
+```
+
+```
+% ssh -i ~/.ssh/citc.key opc@<IP Address>
+```
+
+```
+% ssh -i ~/.ssh/citc.key opc@<IP Address>
+Last login: Sat Dec 26 14:57:06 2020 from <IP Address>
+######################
+
+Welcome to the cluster
+Please now create users and define the number of nodes you want.
+
+######################
+[opc@mgmt ~]$
+```
+
+```
+[opc@mgmt ~]$ vi limits.yaml
+```
+
+before
+```
+#VM.Standard2.1:
+#  1: 1
+#  2: 1
+#  3: 1
+```
+
+
+after
+```
+VM.Standard2.1:
+  1: 1
+#  2: 1
+#  3: 1
+```
+
+```
+[opc@mgmt ~]$ finish
+```
 
 # 参考 URL
 https://cluster-in-the-cloud.readthedocs.io
