@@ -1,0 +1,130 @@
+---
+
+# VMs
+
+VM.Standard2.1:
+  memory: 14700
+  cores_per_socket: 1
+  threads_per_core: 2
+VM.Standard2.2:
+  memory: 29400
+  cores_per_socket: 2
+  threads_per_core: 2
+VM.Standard2.4:
+  memory: 58800
+  cores_per_socket: 4
+  threads_per_core: 2
+VM.Standard2.8:
+  memory: 117600
+  cores_per_socket: 8
+  threads_per_core: 2
+VM.Standard2.16:
+  memory: 235200
+  cores_per_socket: 16
+  threads_per_core: 2
+VM.Standard2.24:
+  memory: 315000
+  cores_per_socket: 24
+  threads_per_core: 2
+VM.Standard.B1.1:
+  memory: 12000
+  cores_per_socket: 1
+  threads_per_core: 2
+VM.Standard.B1.2:
+  memory: 24000
+  cores_per_socket: 2
+  threads_per_core: 2
+VM.Standard.B1.4:
+  memory: 48000
+  cores_per_socket: 4
+  threads_per_core: 2
+VM.Standard.B1.8:
+  memory: 96000
+  cores_per_socket: 8
+  threads_per_core: 2
+VM.Standard.B1.16:
+  memory: 192000
+  cores_per_socket: 16
+  threads_per_core: 2
+
+VM.Standard.E2.1:
+  memory: 7705
+  cores_per_socket: 1
+  threads_per_core: 2
+VM.Standard.E2.2:
+  memory: 16000
+  cores_per_socket: 2
+  threads_per_core: 2
+VM.Standard.E2.4:
+  memory: 32000
+  cores_per_socket: 2
+  threads_per_core: 2
+VM.Standard.E2.8:
+  memory: 64000
+  cores_per_socket: 2
+  threads_per_core: 2
+
+VM.DenseIO2.8:
+  memory: 117600
+  cores_per_socket: 8
+  threads_per_core: 2
+VM.DenseIO2.16:
+  memory: 235200
+  cores_per_socket: 16
+  threads_per_core: 2
+VM.DenseIO2.24:
+  memory: 315000
+  cores_per_socket: 24
+  threads_per_core: 2
+
+# VM GPU
+
+VM.GPU3.1: 
+  memory: 90000
+  cores_per_socket: 6
+  threads_per_core: 2
+  gres: gpu:1
+VM.GPU3.2: 
+  memory: 180000
+  cores_per_socket: 12
+  threads_per_core: 2
+  gres: gpu:2
+VM.GPU3.4: 
+  memory: 360000
+  cores_per_socket: 24
+  threads_per_core: 2
+  gres: gpu:4
+
+# Bare metal
+
+BM.Standard2.52:
+  memory: 768000
+  sockets: 2
+  cores_per_socket: 26
+  threads_per_core: 2
+BM.Standard.B1.44:
+  memory: 512000
+  sockets: 2
+  cores_per_socket: 44
+  threads_per_core: 2
+BM.DenseO2.52:
+  memory: 768000
+  sockets: 2
+  cores_per_socket: 26
+  threads_per_core: 2
+BM.Standard.E2.64:
+  memory: 512000
+  sockets: 2
+  cores_per_socket: 32
+  threads_per_core: 2
+BM.HPC2.36:
+  memory: 384000
+  sockets: 2
+  cores_per_socket: 18
+  threads_per_core: 2
+BM.GPU3.8:
+  memory: 768000
+  sockets: 2
+  cores_per_socket: 26
+  threads_per_core: 2
+  gres: gpu:8

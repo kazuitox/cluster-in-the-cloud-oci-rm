@@ -1,0 +1,74 @@
+schemaVersion: 1.0.0
+version: "20190612"
+locale: "en"
+
+groupings:
+  - title: "1. Home Region"
+    variables:
+    - region
+  - title: "2. Deploy Region & AD Information"
+    variables:
+    - deploy_region
+    - deploy_ad
+  - title: "3. Other Required Information"
+    variables:
+    - deploy_user_ocid 
+    - ManagementShape 
+    - ManagementOcpus
+  - title: "Hidden"
+    variables:
+      - ${ExportPathFS}
+      - ${compartment_ocid}
+      - ${ManagementImageOCID}
+      - ${ClusterNameTag}
+      - ${tenancy_ocid}
+      - ${ansible_branch}
+    visible: false
+
+variables:
+  region:
+    type: oci:identity:region:name
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+    visible: complexExpression
+    required: true
+    description: "ホームリージョンを選択してください。"
+    title: "Home Region"
+    default: "ap-tokyo-1"
+  deploy_region:
+    type: oci:identity:region:name
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+    visible: complexExpression
+    required: true
+    description: "デプロイするリージョンを選択してください。"
+    title: "Deployment Region"
+    default: "ap-tokyo-1"
+  deploy_ad:
+    type: enum
+    enum:
+    - "1"
+    - "2"
+    - "3"
+    default: "1"
+    required: true
+    description: "デプロイ先の Availability Domain を選択してください。"
+  ManagementShape:
+    title: "Management Node Shape"
+    description: "Management Node の Shape を選択してください。"
+    type: oci:core:instanceshape:name
+    default: "VM.Standard2.1"
+    required: true
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+  ManagementOcpus:
+    type: integer
+    description: Number of OCPU's for flex shape
+    minimum: 1
+    maximum: 64
+    default: 2
+    visible:
+      eq:
+        - ${ManagementShape}
+        - "VM.Standard.E3.Flex"
+    required: false
