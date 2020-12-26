@@ -6,6 +6,9 @@ University of Bristol の Matt Williams さんが作成された Slurm を aws/g
 Slurm の Cloud Scheduling がセットアップされており、Cloud を利用したオンデマンドクラスターが簡単にデプロイできます。
 
 # 使い方
+zip ファイルをダウンロードする。
+<img align="middle" src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png" height="180" >
+
 
 
 # 参考 URL
