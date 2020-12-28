@@ -12,7 +12,7 @@ Slurm の Cloud Scheduling がセットアップされており、 Cloud 上に�
 ## 3-2. OCI にログインし、user_OCID をコピー
 * 画面右上の人アイコンをクリックし、Profile からユーザ名をクリックする。
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_Profile.png" width="45%" height="45%" border="1px">
-* User OCID をコピーする。  
+* User OCID をコピーする。
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_User_OCID.png" width="50%" height="50%" border="1px">
 
 ## 3-3. メニューから Resource Manager -> Stack を選択
