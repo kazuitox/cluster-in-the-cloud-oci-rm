@@ -10,17 +10,20 @@ Slurm の Cloud Scheduling がセットアップされており、 Cloud 上に�
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png" width="50%" height="50%" align="center">
 
 ## 3-2. OCI にログインし、user_OCID をコピー
-<img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_Profile.png" width="50%" height="50%" border="1px">
-
+* 画面右上の人アイコンをクリックし、Profile からユーザ名をクリックする。
+<img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_Profile.png" width="45%" height="45%" border="1px">
+* User OCID をコピーする。  
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_User_OCID.png" width="50%" height="50%" border="1px">
 
 ## 3-3. メニューから Resource Manager -> Stack を選択
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Stack.png" width="50%" height="50%" border="1px">
 
 ## 3-4. デプロイするコンパートメントを選択
+* リストからデプロイするコンパートメントを選ぶ
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_Compartment.png" width="30%" height="30%" border="1px">
 
 ## 3-5. Stack の作成
+* Create Stack を選択する
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Create_Stack.png" width="50%" height="50%" border="1px">
 
 Stack Configuration で .zip file を選択し、"1." でダウンロードした zip ファイルをアップロードして Next をクリックする.
