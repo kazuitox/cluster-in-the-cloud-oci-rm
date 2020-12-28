@@ -41,7 +41,7 @@ Slurm の Cloud Scheduling がセットアップされており、 Cloud 上に�
 * 15分ほどでデプロイが完了します
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Job_Succeeded.png" width="50%" height="50%">
 
-outputｓ で IP アドレスと SSH Key をコピーします。  
+* Outpus で IP アドレスと SSH Key をコピーします
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Job_outputs.png" width="50%" height="50%">
 
 
