@@ -24,15 +24,12 @@ Slurm の Cloud Scheduling がセットアップされており、 Cloud 上に�
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Create_Stack.png" width="50%" height="50%" border="1px">
 
 Stack Configuration で .zip file を選択し、"1." でダウンロードした zip ファイルをアップロードして Next をクリックする.
-
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Stack_Info.png" width="50%" height="50%" border="1px">
 
 Review 画面になるので Create をクリックする。
-
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Stack_Review.png" width="50%" height="50%">
 
 Terraform Actions から Apply を選択する。
-
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Apply.png" width="50%" height="50%">
 
 デプロイが開始されます。
