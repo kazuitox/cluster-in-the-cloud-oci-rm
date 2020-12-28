@@ -1,26 +1,26 @@
-# 概要
+# 1.概要
 本リポジトリは Cluster in the Cloud (https://github.com/clusterinthecloud/terraform) を OCI の Resource Manager でデプロイできるようにしたものです。
 
-# Cluster in the Cloud とは
+# 2.Cluster in the Cloud とは
 University of Bristol の Matt Williams さんが作成された Slurm を aws/gcp/oci でデプロイできる Terraform スクリプトです。
 Slurm の Cloud Scheduling がセットアップされており、 Cloud 上にオンデマンド環境が簡単にデプロイできます。
 
-# 使い方
-## 1. 本リポジトリの zip ファイルをダウンロード
+# 3.使い方
+## 3-1. 本リポジトリの zip ファイルをダウンロード
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png" width="50%" height="50%" align="center">
 
-## 2. OCI にログインし、user_OCID をコピー
+## 3-2. OCI にログインし、user_OCID をコピー
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_Profile.png" width="50%" height="50%" border="1px">
 
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_User_OCID.png" width="50%" height="50%" border="1px">
 
-## 3. メニューから Resource Manager -> Stack を選択
+## 3-3. メニューから Resource Manager -> Stack を選択
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Stack.png" width="50%" height="50%" border="1px">
 
-## 4. デプロイするコンパートメントを選択
+## 3-4. デプロイするコンパートメントを選択
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_Compartment.png" width="30%" height="30%" border="1px">
 
-## 5. Stack の作成
+## 3-5. Stack の作成
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Create_Stack.png" width="50%" height="50%" border="1px">
 
 Stack Configuration で .zip file を選択し、"1." でダウンロードした zip ファイルをアップロードして Next をクリックする.
@@ -42,7 +42,7 @@ outputｓ で IP アドレスと SSH Key をコピーします。
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/OCI_RM_Job_outputs.png" width="50%" height="50%">
 
 
-## 6. デプロイされた Management インスタンスに接続
+## 3-6. デプロイされた Management インスタンスに接続
 
 コピーしたキーの文字列をファイルに書き込む。
 ```
@@ -55,7 +55,7 @@ outputｓ で IP アドレスと SSH Key をコピーします。
 % ssh -i ~/.ssh/citc.key opc@<IP Address>
 ```
 
-Management インスタンスの初期設定を行う。
+## 3-7.Management インスタンスの初期設定を行う
 opc のホームディレクトリにある limits.yaml ファイルを編集します。
 
 ```
@@ -84,7 +84,7 @@ limits.yaml ファイルの編集が完了したら、finish コマンドを実�
 [opc@mgmt ~]$ finish
 ```
 
-ユーザの作成
+## 3-8.ユーザの作成
 ```
 [opc@mgmt ~]$ mkdir ssh-keys
 [opc@mgmt ~]$ ssh-keygen -t rsa -b 2048 -N '' -f ssh-keys/user01
@@ -99,7 +99,7 @@ uid=10001(user01) gid=100(users) groups=100(users)
 /mnt/shared/home/user01
 ```
 
-ジョブを投入
+## 3-9.ジョブを投入
 ```
 [user01@mgmt ~]$ sbatch sample.sh
 Submitted batch job 2
