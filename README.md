@@ -71,9 +71,30 @@ limits.yaml ファイルの編集が完了したら、finish コマンドを実�
 
 ユーザの作成
 ```
-[citc@mgmt ~]$ sudo /usr/local/sbin/add_user_ldap kazuito Kazuyuki Ito file:///home/opc/kazuito_key.pub
+[opc@mgmt ~]$ mkdir ssh-keys
+[opc@mgmt ~]$ ssh-keygen -t rsa -b 2048 -N '' -f ssh-keys/user01
+[opc@mgmt ~]$ sudo /usr/local/sbin/add_user_ldap user01 test user01 file:///home/opc/ssh-keys/user01.pub
+adding new entry "cn=user01,ou=People,dc=citc,dc=acrc,dc=bristol,dc=ac,dc=uk"
+
+[opc@mgmt ~]$ id -a user01
+uid=10001(user01) gid=100(users) groups=100(users)
+
+[opc@mgmt ~]$ sudo su - user01
+[user01@mgmt ~]$ pwd
+/mnt/shared/home/user01
 ```
 
+ジョブを投入
+```
+[user01@mgmt ~]$ sbatch sample.sh
+Submitted batch job 2
+[user01@mgmt ~]$ sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+compute*     up   infinite      1 alloc# vm-standard2-1-ad1-0001
+[user01@mgmt ~]$ squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 2   compute   sample   user01 CF       0:04      1 vm-standard2-1-ad1-0001
+```
 
 # 参考 URL
 https://cluster-in-the-cloud.readthedocs.io
