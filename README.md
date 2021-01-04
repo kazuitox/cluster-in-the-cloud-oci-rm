@@ -3,7 +3,9 @@
 
 # 2.Cluster in the Cloud とは
 University of Bristol の Matt Williams さんが作成された Slurm を aws/gcp/oci でデプロイできる Terraform スクリプトです。
-Slurm の Cloud Scheduling がセットアップされており、 Cloud 上にオンデマンド環境が簡単にデプロイできます。
+Slurm の Cloud Scheduling がセットアップされており、 Cloud 上に以下のオンデマンド環境が簡単にデプロイできます。
+
+<img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/diagram.png" width="50%" height="50%" align="center">
 
 # 3.使い方
 ## 3-1. 本リポジトリの zip ファイルをダウンロード
