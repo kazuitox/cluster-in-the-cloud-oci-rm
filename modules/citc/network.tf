@@ -13,7 +13,7 @@ resource "oci_core_subnet" "PublicSubnet" {
   compartment_id    = var.compartment_ocid
   vcn_id            = oci_core_virtual_network.ClusterVCN.id
   route_table_id    = oci_core_route_table.ClusterRT.id
-  dhcp_options_id   = oci_core_dhcp_options.Private.id
+  dhcp_options_id   = oci_core_dhcp_options.Public.id
 }
 resource "oci_core_subnet" "PrivateSubnet" {
   cidr_block        = "10.1.2.0/24"
@@ -23,7 +23,7 @@ resource "oci_core_subnet" "PrivateSubnet" {
   compartment_id    = var.compartment_ocid
   vcn_id            = oci_core_virtual_network.ClusterVCN.id
   route_table_id    = oci_core_route_table.PrivateRT.id
-  dhcp_options_id   = oci_core_dhcp_options.Public.id
+  dhcp_options_id   = oci_core_dhcp_options.Private.id
   prohibit_public_ip_on_vnic = true
 }
 
@@ -35,7 +35,7 @@ resource "oci_core_dhcp_options" "Public" {
     }
     options {
         type = "SearchDomain"
-        search_domain_names = [ "public.clustervcn.oraclevcn.com" ]
+        search_domain_names = [ "private.clustervcn.oraclevcn.com" ]
     }
     vcn_id = oci_core_virtual_network.ClusterVCN.id
     display_name = "Public"
@@ -49,7 +49,7 @@ resource "oci_core_dhcp_options" "Private" {
     }
     options {
         type = "SearchDomain"
-        search_domain_names = [ "private.clustervcn.oraclevcn.com" ]
+        search_domain_names = [ "public.clustervcn.oraclevcn.com" ]
     }
     vcn_id = oci_core_virtual_network.ClusterVCN.id
     display_name = "Private"
