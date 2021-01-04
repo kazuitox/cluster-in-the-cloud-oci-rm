@@ -11,7 +11,7 @@ resource "oci_core_instance" "ClusterManagement" {
 
   create_vnic_details {
     # ManagementAD
-    subnet_id = oci_core_subnet.ClusterSubnet.id
+    subnet_id = oci_core_subnet.PublicSubnet.id
 
     display_name     = "primaryvnic"
     assign_public_ip = true
