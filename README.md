@@ -1,13 +1,13 @@
-# 1.概要
+# 1. 概要
 本リポジトリは Cluster in the Cloud (https://github.com/clusterinthecloud/terraform) を OCI の Resource Manager でデプロイできるようにしたものです。
 
-# 2.Cluster in the Cloud とは
+# 2. Cluster in the Cloud とは
 University of Bristol の Matt Williams さんが作成された Slurm を aws/gcp/oci でデプロイできる Terraform スクリプトです。
 Slurm の Cloud Scheduling がセットアップされており、 Cloud 上に以下のオンデマンド環境が簡単にデプロイできます。
 
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/diagram.png" width="50%" height="50%" align="center">
 
-# 3.使い方
+# 3. 使い方
 ## 3-1. 本リポジトリの zip ファイルをダウンロード
 <img src="https://github.com/kazuitox/cluster-in-the-cloud-oci-rm/blob/main/images/Download_zip_file.png" width="50%" height="50%" align="center">
 
@@ -84,15 +84,20 @@ VM.Standard2.1:
 #  3: 1
 ```
 
-limits.yaml ファイルの編集が完了したら、finish コマンドを実行し、設定を反映させます。これにより slurm.conf が書き換わります。
+limits.yaml ファイルの編集が完了したら、finish コマンドを実行し、設定を反映させます。これにより slurm.conf が書き換わり初期設定は完了です。
 ```
 [opc@mgmt ~]$ finish
 ```
 
 ## 3-8.ユーザの作成
+ユーザに割り当てる ssh key を作成します。
 ```
 [opc@mgmt ~]$ mkdir ssh-keys
 [opc@mgmt ~]$ ssh-keygen -t rsa -b 2048 -N '' -f ssh-keys/user01
+```
+
+ユーザを作成します。
+```
 [opc@mgmt ~]$ sudo /usr/local/sbin/add_user_ldap user01 test user01 file:///home/opc/ssh-keys/user01.pub
 adding new entry "cn=user01,ou=People,dc=citc,dc=acrc,dc=bristol,dc=ac,dc=uk"
 
@@ -105,6 +110,7 @@ uid=10001(user01) gid=100(users) groups=100(users)
 ```
 
 ## 3-9.ジョブを投入
+サンプルのジョブスクリプトを作成して実行。
 ```
 [user01@mgmt ~]$ sbatch sample.sh
 Submitted batch job 2
@@ -115,6 +121,11 @@ compute*     up   infinite      1 alloc# vm-standard2-1-ad1-0001
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  2   compute   sample   user01 CF       0:04      1 vm-standard2-1-ad1-0001
 ```
+
+
+# 4. 削除について
+Resouce Manager から Destroy を実行してください。
+この時、mgmt ノードは起動している状態でないと正常に削除できないのでご注意ください。
 
 # 参考 URL
 https://cluster-in-the-cloud.readthedocs.io
