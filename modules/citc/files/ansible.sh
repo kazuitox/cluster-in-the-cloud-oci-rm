@@ -11,6 +11,7 @@ sudo sh -c "cat > /root/hosts <<EOF
 $(hostname -f)
 EOF"
 
+sudo yum-config-manager --enable ol7_developer_EPEL
 sudo mkdir /etc/ansible/facts.d/
 echo "{\"csp\":\"oracle\", \"fileserver_ip\":\"${fileserver-ip}\"}" | sudo tee /etc/ansible/facts.d/citc.fact
 
