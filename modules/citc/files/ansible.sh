@@ -5,13 +5,14 @@ date
 
 ${custom_block}
 
+sudo yum-config-manager --enable ol7_developer_EPEL
+
 sudo yum install -y ansible git
 sudo sh -c "cat > /root/hosts <<EOF
 [management]
 $(hostname -f)
 EOF"
 
-sudo yum-config-manager --enable ol7_developer_EPEL
 sudo mkdir /etc/ansible/facts.d/
 echo "{\"csp\":\"oracle\", \"fileserver_ip\":\"${fileserver-ip}\"}" | sudo tee /etc/ansible/facts.d/citc.fact
 
