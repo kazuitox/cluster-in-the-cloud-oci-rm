@@ -57,11 +57,11 @@ VM.Standard.E2.2:
   threads_per_core: 2
 VM.Standard.E2.4:
   memory: 32000
-  cores_per_socket: 2
+  cores_per_socket: 4
   threads_per_core: 2
 VM.Standard.E2.8:
   memory: 64000
-  cores_per_socket: 2
+  cores_per_socket: 8
   threads_per_core: 2
 
 VM.DenseIO2.8:
