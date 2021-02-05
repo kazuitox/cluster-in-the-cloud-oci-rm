@@ -83,17 +83,17 @@ VM.GPU3.1:
   memory: 90000
   cores_per_socket: 6
   threads_per_core: 2
-  gres: gpu:1
+  gres: gpu:v100:1
 VM.GPU3.2: 
   memory: 180000
   cores_per_socket: 12
   threads_per_core: 2
-  gres: gpu:2
+  gres: gpu:v100:2
 VM.GPU3.4: 
   memory: 360000
   cores_per_socket: 24
   threads_per_core: 2
-  gres: gpu:4
+  gres: gpu:v100:4
 
 # Bare metal
 
@@ -127,4 +127,4 @@ BM.GPU3.8:
   sockets: 2
   cores_per_socket: 26
   threads_per_core: 2
-  gres: gpu:8
+  gres: gpu:v100:8
