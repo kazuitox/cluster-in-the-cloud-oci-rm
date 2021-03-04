@@ -26,26 +26,6 @@ VM.Standard2.24:
   memory: 315000
   cores_per_socket: 24
   threads_per_core: 2
-VM.Standard.B1.1:
-  memory: 12000
-  cores_per_socket: 1
-  threads_per_core: 2
-VM.Standard.B1.2:
-  memory: 24000
-  cores_per_socket: 2
-  threads_per_core: 2
-VM.Standard.B1.4:
-  memory: 48000
-  cores_per_socket: 4
-  threads_per_core: 2
-VM.Standard.B1.8:
-  memory: 96000
-  cores_per_socket: 8
-  threads_per_core: 2
-VM.Standard.B1.16:
-  memory: 192000
-  cores_per_socket: 16
-  threads_per_core: 2
 
 VM.Standard.E2.1:
   memory: 7705
@@ -101,11 +81,6 @@ BM.Standard2.52:
   memory: 768000
   sockets: 2
   cores_per_socket: 26
-  threads_per_core: 2
-BM.Standard.B1.44:
-  memory: 512000
-  sockets: 2
-  cores_per_socket: 44
   threads_per_core: 2
 BM.DenseO2.52:
   memory: 768000
