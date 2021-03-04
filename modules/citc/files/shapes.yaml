@@ -2,63 +2,115 @@
 
 # VMs
 
+# E3.Flex
+VM.Standard.E3.1.16:
+  memory: 13000
+  cores_per_socket: 1
+  threads_per_core: 2
+  gres: cpu:e3:1
+VM.Standard.E3.2.32:
+  memory: 29000 
+  cores_per_socket: 2
+  threads_per_core: 2
+  gres: cpu:e3:2
+VM.Standard.E3.4.64:
+  memory: 61000 
+  cores_per_socket: 4
+  threads_per_core: 2
+  gres: cpu:e3:4
+VM.Standard.E3.8.128:
+  memory: 125000 
+  cores_per_socket: 8
+  threads_per_core: 2
+  gres: cpu:e3:8
+VM.Standard.E3.16.256:
+  memory: 253000 
+  cores_per_socket: 16
+  threads_per_core: 2
+  gres: cpu:e3:16
+VM.Standard.E3.32.512:
+  memory: 409000 
+  cores_per_socket: 32
+  threads_per_core: 2
+  gres: cpu:e3:32
+VM.Standard.E3.64.1024:
+  memory: 1021000 
+  cores_per_socket: 64
+  threads_per_core: 2
+  gres: cpu:e3:64
+
+# Standard2
 VM.Standard2.1:
   memory: 14700
   cores_per_socket: 1
   threads_per_core: 2
+  gres: cpu:s2:1
 VM.Standard2.2:
   memory: 29400
   cores_per_socket: 2
   threads_per_core: 2
+  gres: cpu:s2:2
 VM.Standard2.4:
   memory: 58800
   cores_per_socket: 4
   threads_per_core: 2
+  gres: cpu:s2:4
 VM.Standard2.8:
   memory: 117600
   cores_per_socket: 8
   threads_per_core: 2
+  gres: cpu:s2:8
 VM.Standard2.16:
   memory: 235200
   cores_per_socket: 16
   threads_per_core: 2
+  gres: cpu:s2:16
 VM.Standard2.24:
   memory: 315000
   cores_per_socket: 24
   threads_per_core: 2
+  gres: cpu:s2:24
 
+# Standard E2
 VM.Standard.E2.1:
-  memory: 7705
+  memory: 5500
   cores_per_socket: 1
   threads_per_core: 2
+  gres: cpu:e2:1
 VM.Standard.E2.2:
   memory: 16000
   cores_per_socket: 2
   threads_per_core: 2
+  gres: cpu:e2:2
 VM.Standard.E2.4:
   memory: 32000
   cores_per_socket: 4
   threads_per_core: 2
+  gres: cpu:e2:4
 VM.Standard.E2.8:
   memory: 64000
   cores_per_socket: 8
   threads_per_core: 2
+  gres: cpu:e2:8
 
+# DenseIO
 VM.DenseIO2.8:
   memory: 117600
   cores_per_socket: 8
   threads_per_core: 2
+  gres: denseio:nvme:1
 VM.DenseIO2.16:
   memory: 235200
   cores_per_socket: 16
   threads_per_core: 2
+  gres: denseio:nvme:2
 VM.DenseIO2.24:
   memory: 315000
   cores_per_socket: 24
   threads_per_core: 2
+  gres: denseio:nvme:4
 
 # VM GPU
-
 VM.GPU3.1: 
   memory: 90000
   cores_per_socket: 6
@@ -76,27 +128,36 @@ VM.GPU3.4:
   gres: gpu:v100:4
 
 # Bare metal
-
 BM.Standard2.52:
-  memory: 768000
+  memory: 765000
   sockets: 2
   cores_per_socket: 26
   threads_per_core: 2
+  gres: cpu:s2:52
 BM.DenseO2.52:
-  memory: 768000
+  memory: 765000
   sockets: 2
   cores_per_socket: 26
   threads_per_core: 2
+  gres: denseio:nvme:8
 BM.Standard.E2.64:
-  memory: 512000
+  memory: 409000
   sockets: 2
   cores_per_socket: 32
   threads_per_core: 2
+  gres: cpu:e2:64
+BM.Standard.E3.128:
+  memory: 2045000
+  sockets: 2
+  cores_per_socket: 64
+  threads_per_core: 2
+  gres: cpu:e3:128
 BM.HPC2.36:
-  memory: 384000
+  memory: 381000
   sockets: 2
   cores_per_socket: 18
   threads_per_core: 2
+  gres: hpc
 BM.GPU3.8:
   memory: 768000
   sockets: 2
