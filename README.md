@@ -129,7 +129,7 @@ Resouce Manager から Destroy を実行してください。
 
 # 5. 参考情報
 ## 5-1. VM.Standard.E3.Flex インスタンスの利用について
-このインスタンスは OCPU(Core) と メモリサイズを柔軟に設定することができます。
+この [E3 Flex インスタンス](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#flexible)は OCPU(Core) と メモリサイズを柔軟に設定することができます。
 この環境ではデフォルトで以下を定義しています。
 - 1 OCPU, 16GB Mem
 - 2 OCPU, 32GB Mem
