@@ -143,7 +143,7 @@ OCPU(Core) や Mem を柔軟に設定したい場合は、以下ファイルの�
 - /etc/citc/shapes.yaml
 - /home/opc/limit.conf
 
-命名規則としては VM.Standard.E3.<OCPU>.<GB Mem> です。仮に 1 OCPU で 8 GB Mem を追加したい場合は、 VM.Standard.E3.1.8 と設定してください。
+命名規則としては VM.Standard.E3.OCPU.Mem です。仮に 1 OCPU で 8 GB Mem を追加したい場合は、 VM.Standard.E3.1.8 と設定してください。
 
 # ６. 本家の URL
 https://cluster-in-the-cloud.readthedocs.io
