@@ -67,7 +67,7 @@ opc のホームディレクトリにある limits.yaml ファイルを編集し
 [opc@mgmt ~]$ vi limits.yaml
 ```
 
-例えば VM.Standard2.1 を AD 1 に 1インスタンスのみデプロイできるようにするには以下のように変更します。
+例えば VM.Standard2.1(1Core,16GB Mem のインスタンス) を AD 1 に 1インスタンスのみデプロイできるようにするには以下のように変更します。
 before:
 ```
 #VM.Standard2.1:
@@ -110,7 +110,7 @@ uid=10001(user01) gid=100(users) groups=100(users)
 ```
 
 ## 3-9.ジョブを投入
-サンプルのジョブスクリプトを作成して実行。
+nstask=1 のサンプルのジョブスクリプトを作成して実行。
 ```
 [user01@mgmt ~]$ sbatch sample.sh
 Submitted batch job 2
@@ -127,5 +127,23 @@ compute*     up   infinite      1 alloc# vm-standard2-1-ad1-0001
 Resouce Manager から Destroy を実行してください。
 この時、mgmt ノードは起動している状態でないと正常に削除できないのでご注意ください。
 
-# 参考 URL
+# 5. 参考情報
+# 5-1. VM.Standard.E3.Flex インスタンスの利用について
+このインスタンスは OCPU(Core) と メモリサイズを柔軟に設定することができます。
+この環境ではデフォルトで以下を定義しています。
+- 1 OCPU, 16GB Mem
+- 2 OCPU, 32GB Mem
+- 4 OCPU, 64GB Mem
+- 8 OCPU, 128GB Mem
+- 16 OCPU, 256GB Mem
+- 32 OCPU, 512GB Mem
+- 64 OCPU, 1024GB Mem
+
+OCPU(Core) や Mem を柔軟に設定したい場合は、以下ファイルの内容を書き換えてください。
+- /etc/citc/shapes.yaml
+- /home/opc/limit.conf
+
+命名規則としては VM.Standard.E3.<OCPU>.<GB Mem> です。仮に 1 OCPU で 8 GB Mem を追加したい場合は、 VM.Standard.E3.1.8 と設定してください。
+
+# ６. 本家の URL
 https://cluster-in-the-cloud.readthedocs.io
