@@ -1,6 +1,41 @@
 ---
 
 # VMs
+VM.Standard.E4.1.16:
+  memory: 13000
+  cores_per_socket: 1
+  threads_per_core: 2
+  gres: cpu:e4:1
+VM.Standard.E4.2.32:
+  memory: 29000
+  cores_per_socket: 2
+  threads_per_core: 2
+  gres: cpu:e4:2
+VM.Standard.E4.4.64:
+  memory: 61000
+  cores_per_socket: 4
+  threads_per_core: 2
+  gres: cpu:e4:4
+VM.Standard.E4.8.128:
+  memory: 125000
+  cores_per_socket: 8
+  threads_per_core: 2
+  gres: cpu:e4:8
+VM.Standard.E4.16.256:
+  memory: 253000
+  cores_per_socket: 16
+  threads_per_core: 2
+  gres: cpu:e4:16
+VM.Standard.E4.32.512:
+  memory: 409000
+  cores_per_socket: 32
+  threads_per_core: 2
+  gres: cpu:e4:32
+VM.Standard.E4.64.1010:
+  memory: 1000000
+  cores_per_socket: 64
+  threads_per_core: 2
+  gres: cpu:e4:64
 
 # E3.Flex
 VM.Standard.E3.1.16:
