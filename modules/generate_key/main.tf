@@ -1,7 +1,13 @@
-provider "tls" {
-  version = "~> 2.0"
+terraform {
+  required_version = ">= 1.5.0"
+  required_providers {
+    tls = {
+      source  = "hashicorp/tls"
+      version = "~> 4.0"
+    }
+  }
 }
 
 resource "tls_private_key" "public_private_key_pair" {
-  algorithm   = "RSA"
+  algorithm = "RSA"
 }
