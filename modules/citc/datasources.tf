@@ -17,7 +17,7 @@ data "oci_identity_availability_domains" "ADs" {
 data "oci_core_images" "linux" {
   compartment_id           = var.compartment_ocid
   operating_system         = "Oracle Linux"
-  operating_system_version = "7.8"
+  operating_system_version = "7.9"
   filter {
     name   = "display_name"
     values = ["^([a-zA-z]+)-([a-zA-z]+)-([\\.0-9]+)-([\\.0-9-]+)$"]
