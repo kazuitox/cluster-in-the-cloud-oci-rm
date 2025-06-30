@@ -49,7 +49,8 @@ module "module_citc" {
 
 ## Output
 output "sshPrivateKey" {
-  value = module.module_generate_key.private_key_pem
+  value     = module.module_generate_key.private_key_pem
+  sensitive = true
 }
 output "ManagementPublicIP" {
   value = module.module_citc.ManagementPublicIP
