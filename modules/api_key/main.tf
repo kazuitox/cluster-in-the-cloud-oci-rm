@@ -1,32 +1,33 @@
 variable "public_key_pem" {
-   type = string
+  type = string
 }
 variable "region" {
-   type = string
+  type = string
 }
 variable "deploy_user_ocid" {
-   type = string
+  type = string
 }
 
 terraform {
-  required_version = "~> 0.12"
-}
-
-provider "template" {
-  version = "~> 2.1"
-}
-
-provider "tls" {
-  version = "~> 2.0"
+  required_version = ">= 1.5.0"
+  required_providers {
+    tls = {
+      source  = "hashicorp/tls"
+      version = "~> 4.0"
+    }
+    oci = {
+      source  = "oracle/oci"
+      version = ">= 5.0.0"
+    }
+  }
 }
 
 provider "oci" {
-  version          = ">= 3.23.0"
-  region           = "${var.region}"
+  region = var.region
 }
 
 
 resource "oci_identity_api_key" "api-key1" {
-  user_id = "${var.deploy_user_ocid}"
-  key_value = "${var.public_key_pem}"
+  user_id   = var.deploy_user_ocid
+  key_value = var.public_key_pem
 }

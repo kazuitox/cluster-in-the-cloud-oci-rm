@@ -16,43 +16,43 @@ resource "oci_core_subnet" "PublicSubnet" {
   dhcp_options_id   = oci_core_dhcp_options.Public.id
 }
 resource "oci_core_subnet" "PrivateSubnet" {
-  cidr_block        = "10.1.2.0/24"
-  display_name      = "Private"
-  dns_label         = "private"
-  security_list_ids = [oci_core_security_list.PrivateSecurityList.id]
-  compartment_id    = var.compartment_ocid
-  vcn_id            = oci_core_virtual_network.ClusterVCN.id
-  route_table_id    = oci_core_route_table.PrivateRT.id
-  dhcp_options_id   = oci_core_dhcp_options.Private.id
+  cidr_block                 = "10.1.2.0/24"
+  display_name               = "Private"
+  dns_label                  = "private"
+  security_list_ids          = [oci_core_security_list.PrivateSecurityList.id]
+  compartment_id             = var.compartment_ocid
+  vcn_id                     = oci_core_virtual_network.ClusterVCN.id
+  route_table_id             = oci_core_route_table.PrivateRT.id
+  dhcp_options_id            = oci_core_dhcp_options.Private.id
   prohibit_public_ip_on_vnic = true
 }
 
 resource "oci_core_dhcp_options" "Public" {
-    compartment_id = var.compartment_ocid
-    options {
-        type = "DomainNameServer"
-        server_type = "VcnLocalPlusInternet"
-    }
-    options {
-        type = "SearchDomain"
-        search_domain_names = [ "private.clustervcn.oraclevcn.com" ]
-    }
-    vcn_id = oci_core_virtual_network.ClusterVCN.id
-    display_name = "Public"
+  compartment_id = var.compartment_ocid
+  options {
+    type        = "DomainNameServer"
+    server_type = "VcnLocalPlusInternet"
+  }
+  options {
+    type                = "SearchDomain"
+    search_domain_names = ["private.clustervcn.oraclevcn.com"]
+  }
+  vcn_id       = oci_core_virtual_network.ClusterVCN.id
+  display_name = "Public"
 }
 
 resource "oci_core_dhcp_options" "Private" {
-    compartment_id = var.compartment_ocid
-    options {
-        type = "DomainNameServer"
-        server_type = "VcnLocalPlusInternet"
-    }
-    options {
-        type = "SearchDomain"
-        search_domain_names = [ "public.clustervcn.oraclevcn.com" ]
-    }
-    vcn_id = oci_core_virtual_network.ClusterVCN.id
-    display_name = "Private"
+  compartment_id = var.compartment_ocid
+  options {
+    type        = "DomainNameServer"
+    server_type = "VcnLocalPlusInternet"
+  }
+  options {
+    type                = "SearchDomain"
+    search_domain_names = ["public.clustervcn.oraclevcn.com"]
+  }
+  vcn_id       = oci_core_virtual_network.ClusterVCN.id
+  display_name = "Private"
 }
 
 resource "oci_core_internet_gateway" "ClusterIG" {
@@ -122,7 +122,7 @@ resource "oci_core_security_list" "PrivateSecurityList" {
   }
   egress_security_rules {
     # Open all ports within the private network
-    protocol = "all"
-    destination   = "0.0.0.0/0"
+    protocol    = "all"
+    destination = "0.0.0.0/0"
   }
 }

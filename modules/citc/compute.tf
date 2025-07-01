@@ -25,7 +25,7 @@ resource "oci_core_instance" "ClusterManagement" {
 
   metadata = {
     ssh_authorized_keys = "${var.public_key_openssh}"
-  #  user_data           = base64encode(data.template_file.user_data.rendered)
+    #  user_data           = base64encode(data.template_file.user_data.rendered)
   }
 
   timeouts {
@@ -46,7 +46,7 @@ resource "oci_core_instance" "ClusterManagement" {
       host        = oci_core_instance.ClusterManagement.public_ip
       user        = "opc"
       agent       = false
-      private_key = "${var.private_key_pem}"
+      private_key = var.private_key_pem
     }
   }
 
@@ -59,7 +59,7 @@ resource "oci_core_instance" "ClusterManagement" {
       host        = oci_core_instance.ClusterManagement.public_ip
       user        = "opc"
       agent       = false
-      private_key = "${var.private_key_pem}"
+      private_key = var.private_key_pem
     }
   }
 
@@ -68,7 +68,7 @@ resource "oci_core_instance" "ClusterManagement" {
       timeout     = "15m"
       host        = oci_core_instance.ClusterManagement.public_ip
       user        = "opc"
-      private_key = "${var.private_key_pem}"
+      private_key = var.private_key_pem
     }
 
     inline = [
@@ -93,7 +93,7 @@ EOF
       host        = oci_core_instance.ClusterManagement.public_ip
       user        = "opc"
       agent       = false
-      private_key = "${var.private_key_pem}"
+      private_key = var.private_key_pem
     }
   }
 
@@ -106,7 +106,7 @@ EOF
       host        = oci_core_instance.ClusterManagement.public_ip
       user        = "opc"
       agent       = false
-      private_key = "${var.private_key_pem}"
+      private_key = var.private_key_pem
     }
   }
 
@@ -124,7 +124,7 @@ EOF
       host        = oci_core_instance.ClusterManagement.public_ip
       user        = "opc"
       agent       = false
-      private_key = "${var.private_key_pem}"
+      private_key = var.private_key_pem
     }
   }
 
@@ -147,41 +147,22 @@ connection {
   host        = oci_core_instance.ClusterManagement.public_ip
   user        = "opc"
   agent       = false
-  private_key = "${var.private_key_pem}"
+  private_key = var.private_key_pem
 }
 }
-
-  provisioner "remote-exec" {
-    inline = [
-      "chmod a+x /tmp/ansible.sh",
-      "/tmp/ansible.sh"
-    ]
-    connection {
-      timeout     = "15m"
-      host        = oci_core_instance.ClusterManagement.public_ip
-      user        = "opc"
-      private_key = "${var.private_key_pem}"
-    }
-  }
 
 provisioner "remote-exec" {
-  when = destroy
   inline = [
-    "echo Terminating any remaining compute nodes",
-    "if systemctl status slurmctld >> /dev/null; then",
-    "sudo -u slurm /usr/local/bin/stopnode \"$(sinfo --noheader --Format=nodelist:10000 | tr -d '[:space:]')\" || true",
-    "fi",
-    "sleep 5",
-    "echo Node termination request completed",
+    "chmod a+x /tmp/ansible.sh",
+    "/tmp/ansible.sh"
   ]
-
   connection {
     timeout     = "15m"
     host        = oci_core_instance.ClusterManagement.public_ip
     user        = "opc"
-    agent       = false
-    private_key = "${var.private_key_pem}"
+    private_key = var.private_key_pem
   }
- }
+}
+
 
 }

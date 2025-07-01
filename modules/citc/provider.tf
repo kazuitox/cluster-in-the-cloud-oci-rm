@@ -1,16 +1,17 @@
 terraform {
-  required_version = "~> 0.12"
-}
-
-provider "template" {
-  version = "~> 2.1"
-}
-
-provider "tls" {
-  version = "~> 2.0"
+  required_version = ">= 1.5.0"
+  required_providers {
+    tls = {
+      source  = "hashicorp/tls"
+      version = "~> 4.0"
+    }
+    oci = {
+      source  = "oracle/oci"
+      version = ">= 5.0.0"
+    }
+  }
 }
 
 provider "oci" {
-  version          = ">= 3.23.0"
-  region           = "${var.deploy_region}"
+  region = var.deploy_region
 }
